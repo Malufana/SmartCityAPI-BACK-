@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-top: 10px; /* Adicionado para espaço entre o botão e o input */
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            form {
+                width: 90%;
+            }
+        }
+
+        .upload-section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data" action="/process-upload/">
+        {% csrf_token %}
+        <h1>CSV UPLOAD</h1>
+        
+        <div class="upload-section">
+            <label for="sensor_csv">Upload Sensor CSV:</label>
+            <input type="file" name="sensor_csv" id="sensor_csv" >
+            <button type="submit" name="upload_type" value="sensor">Upload Sensor</button>
+        </div>
+        
+        <div class="upload-section">
+            <label for="luminosidade_csv">Upload Luminosidade CSV:</label>
+            <input type="file" name="luminosidade_csv" id="luminosidade_csv" >
+            <button type="submit" name="upload_type" value="luminosidade">Upload Luminosidade</button>
+        </div>
+        
+        <div class="upload-section">
+            <label for="temperatura_csv">Upload Temperatura CSV:</label>
+            <input type="file" name="temperatura_csv" id="temperatura_csv" >
+            <button type="submit" name="upload_type" value="temperatura">Upload Temperatura</button>
+        </div>
+
+        <div class="upload-section">
+            <label for="umidade_csv">Upload Umidade CSV:</label>
+            <input type="file" name="umidade_csv" id="umidade_csv" >
+            <button type="submit" name="upload_type" value="umidade">Upload Umidade</button>
+        </div>
+
+        <div class="upload-section">
+            <label for="contador_csv">Upload Contador CSV:</label>
+            <input type="file" name="contador_csv" id="contador_csv" >
+            <button type="submit" name="upload_type" value="contador">Upload Contador</button>
+        </div>
+    </form>
+</body>
+</html>
